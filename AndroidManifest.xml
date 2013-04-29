@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.jiahaoliuliu.android.futbol.realmadridvsborussia.FullscreenActivity"
+            android:name="com.jiahaoliuliu.android.futbol.realmadridvsborussia.RMadridvsBorussia"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme" >
@@ -24,6 +24,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.jiahaoliuliu.android.futbol.realmadridvsborussia.LikeUnlike"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
+
+        <activity
+            android:name="com.jiahaoliuliu.android.futbol.realmadridvsborussia.PreviewCamera"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
+        
     </application>
 
 </manifest>

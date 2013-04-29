@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:baselineAligned="false"
+    >
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:background="#FFFFFF"
+        >
+
+        <Button
+            android:id="@+id/button_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/likebutton" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:background="#FFFFFF">
+
+        <Button
+            android:id="@+id/button_unlike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/unlikebutton" />
+        
+    </RelativeLayout>
+</LinearLayout>
