@@ -24,7 +24,7 @@ public class LikeUnlike extends Activity {
 
     private int teamInt = -1;
 
-    Intent previewCameraIntent;
+    Intent photoGalleryIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +33,13 @@ public class LikeUnlike extends Activity {
         setContentView(R.layout.like_unlike);
         context = this;
         
-        previewCameraIntent = new Intent(this, PreviewCamera.class);
+        photoGalleryIntent = new Intent(this, PhotoGallery.class);
 
         // Get the extra content
         Intent startedIntent = getIntent();
         teamInt = startedIntent.getIntExtra(RMadridvsBorussia.TEAM_NAME, -1);
         Log.v(LOG_TAG, "The team int is " + teamInt);
-        previewCameraIntent.putExtra(RMadridvsBorussia.TEAM_NAME, teamInt);
+        photoGalleryIntent.putExtra(RMadridvsBorussia.TEAM_NAME, teamInt);
 
         // Lock the screen to landscape
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -59,17 +59,17 @@ public class LikeUnlike extends Activity {
             switch (v.getId()) {
 	            case R.id.button_like:
 	            	Log.v(LOG_TAG, "Like button pressed");
-	            	previewCameraIntent.putExtra(LIKE_UNLIKE_NAME, likeble.LIKE.ordinal());
+	            	photoGalleryIntent.putExtra(LIKE_UNLIKE_NAME, likeble.LIKE.ordinal());
 	                break;
 	            case R.id.button_unlike:
 	            	Log.v(LOG_TAG, "Unlike button pressed");
-	            	previewCameraIntent.putExtra(LIKE_UNLIKE_NAME, likeble.UNLIKE.ordinal());
+	            	photoGalleryIntent.putExtra(LIKE_UNLIKE_NAME, likeble.UNLIKE.ordinal());
 	                break;
 	            default:
 	                Log.w(LOG_TAG, "Button not recognized " + v.getId());
 	                break;
 	            }
-            context.startActivity(previewCameraIntent);
+            context.startActivity(photoGalleryIntent);
         }
     };
 }
