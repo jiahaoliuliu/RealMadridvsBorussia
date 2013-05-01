@@ -23,18 +23,22 @@ import android.widget.AdapterView.OnItemClickListener;
 public class PhotoGallery extends Activity {
 	
     private static final String LOG_TAG = PhotoGallery.class.getSimpleName();
-
+    private Context context;
+    
     private RMadridvsBorussia.team team;
     private String teamName;
     
     private LikeUnlike.likeble likeble;
     private String likebleMessage;
+    
+    public static final String TOP_PHOTO_ID_NAME = "topPhoto";
 
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
  
+        context = this;
         // Lock the screen to landscape
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         
@@ -69,7 +73,10 @@ public class PhotoGallery extends Activity {
  
         g.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(@SuppressWarnings("rawtypes") AdapterView parent, View v, int position, long id) {
-                Toast.makeText(PhotoGallery.this, "" + position, Toast.LENGTH_SHORT).show();
+            	// Starting the camera preview activity
+            	Intent startPreviewCameraIntent = new Intent(context, PreviewCamera.class);
+            	startPreviewCameraIntent.putExtra(TOP_PHOTO_ID_NAME, id);
+            	context.startActivity(startPreviewCameraIntent);
             }
         });
 
@@ -132,11 +139,11 @@ public class ImageAdapter extends BaseAdapter {
     }
  
     public Object getItem(int position) {
-        return position;
+        return mImageIds.get(position);
     }
  
     public long getItemId(int position) {
-        return position;
+        return mImageIds.get(position);
     }
  
     public View getView(int position, View convertView, ViewGroup parent) {
